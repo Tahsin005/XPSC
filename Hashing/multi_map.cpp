@@ -16,8 +16,15 @@ int main(){
     mp.insert(make_pair("ferdous",1111));
 
     mp.insert(make_pair("ferdous",9999));// this will not update the map, 
+    mp.insert(make_pair("ferdous",7777));// this will not update the map, 
+
+    auto a = mp.equal_range("ferdous");// returns bounds of range of elements with key passed
     for(auto& element: mp){
         cout<<"Name - "<<element.first<<" ||  ID No. - "<<element.second<<endl;
+    }cout<<endl;
+
+    for(auto it  = a.first; it != a.second; it++){
+        cout<<it->first<<" "<<it->second<<endl;
     }cout<<endl;
 
     // auto st = mp.find("mahin");
