@@ -18,7 +18,7 @@ int longestSumZeroSubArray(vector<int> &v){
     unordered_map<int,int> mp; // To store prefix sum
 
     int prefixSum = 0;
-    int maxlength = INT_MIN;
+    int maxlength = 0;
 
     for(int i = 0; i < v.size(); i++){
         prefixSum += v[i];
