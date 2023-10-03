@@ -1,27 +1,26 @@
 #include <bits/stdc++.h>
+#define forI(i, s, n) for (int i = s; i < n; i++)
 using namespace std;
 int main()
 {
     int n;
     cin >> n;
     int a[n];
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
+    int i;
+    forI(i, 0, n) cin >> a[i];
     int k;
     cin >> k;
 
-    int i = 0, j = 0, s = 0;
+    int j;
     int mx = INT_MIN;
-    while (j < n)
+    forI(i, 0, n - k + 1)
     {
-        s += a[j];
-        if (j >= k - 1)
+        int s = 0;
+        forI(j, i, i + k)
         {
-            mx = max(mx, s);
-            s -= a[i];
-            i++;
+            s += a[j];
         }
-        j++;
+        mx = max(mx, s);
     }
     cout << mx << endl;
     return 0;
