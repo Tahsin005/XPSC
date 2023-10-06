@@ -1,0 +1,7 @@
+1 36
+2 18
+3 12
+4 9
+6 6
+Count and sum of divisor : 
+9 91
