@@ -1,1 +1,5 @@
-2 2 2 3 
+Not Prime
+Prime
+Not Prime
+Prime
+Not Prime
