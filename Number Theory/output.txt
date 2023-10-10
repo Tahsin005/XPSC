@@ -1,5 +1,4 @@
-Not Prime
-Prime
-Not Prime
-Prime
-Not Prime
+00000111011
+00000100000
+00000001011
+Not power of 2
