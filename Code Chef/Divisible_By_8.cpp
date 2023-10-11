@@ -2,9 +2,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
-int main()
-{
+int main(){
     int arr[10][10] = {
         {8, 6, 4, 2, 0, 6, 4, 2, 0, 6},
         {4, 2, 0, 6, 4, 2, 0, 6, 4, 2},
@@ -20,8 +18,7 @@ int main()
 
     int t;
     cin >> t;
-    while (t--)
-    {
+    while (t--){
         int n;
         string s;
         cin >> n >> s;
@@ -33,16 +30,13 @@ int main()
 
         int target = arr[d1][d2];
 
-        if (target == 8 || target == 0)
-        {
+        if (target == 8 || target == 0){
             if (n == 1)
                 cout << 8 << endl;
-            else if (d3 == 8 || d3 == 0)
-            {
+            else if (d3 == 8 || d3 == 0){
                 cout << s << endl;
             }
-            else
-            {
+            else{
                 cout << s.substr(0, n - 1) << target << endl;
             }
         }
