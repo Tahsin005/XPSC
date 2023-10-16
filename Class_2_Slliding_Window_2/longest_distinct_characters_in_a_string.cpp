@@ -19,29 +19,27 @@ int main()
 
 // } Driver Code Ends
 
-int longestSubstrDistinctChars(string S)
+int longestSubstrDistinctChars(string s)
 {
     // your code here
-    int n = S.length();
-    if(n <= 1){
-        return n;
-    }
-
-    unordered_set<char> s;
-    int mx = 0;
-    int i = 0, j = 0;
-
-    while(j < n){
-        if(s.find(S[j]) == s.end()){
-            s.insert(S[j]);
-            j++;
-            mx = max(mx, j - i);
+    int i = 0, j = 0, n = s.size();
+    int fr[26] = {0};
+    int ans = 0;
+    while (j < n)
+    {
+        if (fr[s[j] - 'a'] == 1)
+        {
+            while (true)
+            {
+                fr[s[i] - 'a'] = 0;
+                i++;
+                if (s[i - 1] == s[j])
+                    break;
+            }
         }
-        else{
-            s.erase(S[i]);
-            i++;
-        }
+        fr[s[j] - 'a'] = 1;
+        ans = max(ans, j - i + 1);
+        j++;
     }
-
-    return mx;
+    return ans;
 }
