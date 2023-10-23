@@ -25,13 +25,13 @@ using namespace std;
 int me, n;
 int compare(int x){
     int a = me ^ x;
-    int cnt = 0;
-    for(int k = 31; k >= 0; --k){
-        if((a & (1<<k)) != 0){
-            cnt++;
-        }
-    }
-    return cnt;
+    // int cnt = 0;
+    // for(int k = 31; k >= 0; --k){
+    //     if((a & (1<<k)) != 0){
+    //         cnt++;
+    //     }
+    // }
+    return __builtin_popcount(a);
 }
 void solve(){
     int m, k;
