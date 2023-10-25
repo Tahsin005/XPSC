@@ -13,26 +13,20 @@
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 int main(){
-    int a,b;
-    cin>>a>>b;
-    cout<<a + b<<el;
+    int n;
+    cin>>n;
+    vii v(n);
+    for(int i = 0; i < n; i++){
+        cin>>v[i];
+    }
 
-    // Find kth bit
-    // int k;
-    // cin>>k;
-    // if((b>>k) & 1){
-    //     cout<<1<<el;
-    // }
-    // else{
-    //     cout<<0<<el;
-    // }
-
-    // FANCY WAY OF DOING ADDITION
-    // a + b = (a ^ b ) + 2 * (a & b)
-    // a + b = (a | b ) + (a & b)
-    cout<<(a ^ b) + 2 * (a & b)<<el;
-    cout<<(a | b ) + (a & b)<<el;
-
-    
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(v[i] & 1){
+            cnt++;
+        }
+    }
+    int ans = min(cnt, n - cnt);
+    cout<<ans<<el;
     return 0;    
 }

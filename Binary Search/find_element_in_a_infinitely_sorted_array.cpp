@@ -17,28 +17,6 @@
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 int main(){
-    vtr<char> v = {'a','c','f','h'};
-
-    char key = 'c';
-    int l = 0;
-    int r = v.size() - 1;
-    int mid = 0;
-    char res = '#';
-
-    while(l <= r){
-        mid = l + (r - l) / 2;
-        if(v[mid] == key){
-            l = mid + 1;
-        }
-        if(v[mid] < key){
-            l = mid + 1;
-        }
-        else if(v[mid] > key){
-            res = v[mid];
-            r = mid - 1;
-        }
-    }
-    if(res == '#') cout<<"No greater element found"<<el;
-    else cout<<res<<" found"<<el;
+    
     return 0;    
-} 
+}
