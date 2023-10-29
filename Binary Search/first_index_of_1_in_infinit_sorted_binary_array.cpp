@@ -17,37 +17,32 @@
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 int main(){
-    vii v = {1,2,3,4,5,6,7,8,9,10,11,12,13}; // Suppose it as an infinite array
+    vii v = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1};
+    // Suppose it as an infinit array
 
-    int key = 9;
+    int k = 1;
 
     int l = 0;
     int r = 1;
 
-    while(key > v[r]){
+    while(k > v[r]){
         l = r;
         r *= 2;
     }
-
-    
-    // Now normal binary search
-    int elem = key;
-    bool flag = false;
-    int mid = 0;
+    int idx = 0;
     while(l <= r){
-        mid = l + (r - l) / 2;
-        if(v[mid] == elem){
-            flag = true;
-            break;
+        int mid = l + (r - l) / 2;
+        if(v[mid] == k){
+            idx = mid;
+            r = mid - 1;
         }
-        else if(elem < v[mid]){
+        else if(v[mid] > k){
             r = mid - 1;
         }
         else{
             l = mid + 1;
         }
     }
-    if(flag == true) cout<<mid<<endl;
-    else cout<<"-1"<<endl;
+    out(idx)
     return 0;    
 }
