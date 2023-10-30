@@ -27,27 +27,48 @@
 #define messi cout<<"Que Miras Bobo!"<<'\n';
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
+bool isPowerOf2(int number){
+    if(number <= 0){
+        return false;
+    }
+
+    return (number & (number - 1)) == 0;
+}
 void solve(){
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-
-    string ans = "";
-
+    vii v(n);
     for(int i = 0; i < n; i++){
-        if(i + 2 < n and s[i + 2] == '0' and (i + 3 >= n or s[i + 3] != '0')){
-            int num = ((s[i] - '0') * 10) + (s[i + 1] - '0');
-            ans.push_back((char)(96 + num));
-            i += 2;
-        }
-        else{
-            int num = ((s[i] - '0'));
-            ans.push_back((char)(96 + num));
+        cin>>v[i];
+    }
+    bool flag = true;
+    for(int i = 0; i < n - 1; i++){
+        if(v[i] > v[i + 1]){
+            flag = false;
         }
     }
 
-    cout<<ans<<el;
+    vii idx;
+    if(flag){
+        yes
+    }
+    else{
+        for(int i = 0; i < n - 1; i++){
+            if(v[i] > v[i + 1]){
+                idx.pb(i + 1);
+            }
+        }
+        bool isTwo = true;
+        for(auto& val: idx){
+            if(isPowerOf2(val) == false){
+                isTwo = false;
+                break;
+            }
+        }
+        if(isTwo) yes
+        else no
+    }
+
 }
 int main(){
     Tahsin

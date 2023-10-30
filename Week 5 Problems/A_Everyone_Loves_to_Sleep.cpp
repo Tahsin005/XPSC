@@ -28,26 +28,39 @@
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 void solve(){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-
-    string ans = "";
+    int n,h,m;
+    cin>>n>>h>>m;
+    int ans = imax;
 
     for(int i = 0; i < n; i++){
-        if(i + 2 < n and s[i + 2] == '0' and (i + 3 >= n or s[i + 3] != '0')){
-            int num = ((s[i] - '0') * 10) + (s[i + 1] - '0');
-            ans.push_back((char)(96 + num));
-            i += 2;
-        }
-        else{
-            int num = ((s[i] - '0'));
-            ans.push_back((char)(96 + num));
-        }
-    }
 
-    cout<<ans<<el;
+        int hh , mm;
+        cin>>hh>>mm;
+        int cnt = 0;
+        int original_hour = h;
+        int original_minute = m;
+
+        while(true){
+            if(original_hour == hh and original_minute == mm){
+                break;
+            }
+
+            cnt++;
+            original_minute++;
+            if(original_minute == 60){
+                original_minute = 0;
+                original_hour++;
+                if(original_hour == 24){
+                    original_hour = 0;
+                }
+            }
+
+        }
+
+        ans = min(ans, cnt);
+    }
+    out2(ans / 60, ans % 60)
+
 }
 int main(){
     Tahsin

@@ -27,27 +27,56 @@
 #define messi cout<<"Que Miras Bobo!"<<'\n';
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
+string s;
+int n;
 void solve(){
-    int n;
-    cin>>n;
-    string s;
     cin>>s;
 
-    string ans = "";
+    n = s.length();
+
+    char mn = min(s[0],s[n - 1]);
+    char mx = max(s[0],s[n - 1]);
+
+    vector<pair<char,int>> v;
 
     for(int i = 0; i < n; i++){
-        if(i + 2 < n and s[i + 2] == '0' and (i + 3 >= n or s[i + 3] != '0')){
-            int num = ((s[i] - '0') * 10) + (s[i + 1] - '0');
-            ans.push_back((char)(96 + num));
-            i += 2;
-        }
-        else{
-            int num = ((s[i] - '0'));
-            ans.push_back((char)(96 + num));
+        if(s[i] >= mn and s[i] <= mx){
+            v.pb({s[i],i});
         }
     }
 
-    cout<<ans<<el;
+    sort(v.begin(),v.end(),[&](pair<char,int> a,pair<char,int> b){
+        return a.second < b.second;
+    });
+
+
+
+    if(v.size()>2){
+        sort(v.begin() + 1,v.begin() + v.size() - 1,[&](pair<char,int> a,pair<char,int> b){
+            if(s[0] > s[n - 1]){
+                return a.first > b.first;
+            }
+            return a.first < b.first;
+        });
+    }
+
+    vector<int> seq;
+    ll moves=0;
+
+    seq.push_back(1);
+
+    for(int i = 1; i < v.size(); i++){
+        moves += abs(v[i - 1].first - v[i].first);
+        seq.push_back(v[i].second + 1);
+    }
+
+
+    cout<<moves<<" "<<seq.size()<<el;
+
+    for(auto i:seq){
+        cout<<i<<" ";
+    }
+    nl
 }
 int main(){
     Tahsin

@@ -27,27 +27,44 @@
 #define messi cout<<"Que Miras Bobo!"<<'\n';
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
+ll powerOf2(ll n){
+    if(n < 0){
+        return 0;
+    }
+
+    ll result = 1;
+    for(ll i = 0; i < n; i++){
+        result *= 2;
+    }
+
+    return result;
+}
 void solve(){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
+    ll n,q;
+    cin>>n>>q;
 
-    string ans = "";
-
+    vtr<ll> v(n),x;
     for(int i = 0; i < n; i++){
-        if(i + 2 < n and s[i + 2] == '0' and (i + 3 >= n or s[i + 3] != '0')){
-            int num = ((s[i] - '0') * 10) + (s[i + 1] - '0');
-            ans.push_back((char)(96 + num));
-            i += 2;
-        }
-        else{
-            int num = ((s[i] - '0'));
-            ans.push_back((char)(96 + num));
+        cin>>v[i];
+    }
+    for(int i = 0; i < q; i++){
+        ll k;
+        cin>>k;
+        if(x.empty() or x.back() > k)
+            x.pb(k);
+    }
+    for(int i = 0; i < x.size(); i++){
+        ll p = powerOf2(x[i]);
+        for(int j = 0; j < n; j++){
+            if(v[j] % p == 0){
+                ll add = powerOf2(x[i] - 1);
+                v[j] += add;
+            }
         }
     }
 
-    cout<<ans<<el;
+    for(auto& val: v) cout<<val<<" ";
+    nl
 }
 int main(){
     Tahsin

@@ -30,24 +30,43 @@ using namespace std;
 void solve(){
     int n;
     cin>>n;
-    string s;
-    cin>>s;
+    vii a(n);
+    for(int i = 0; i < n; i++){
+        cin>>a[i];
+    }
 
-    string ans = "";
+    int ans = n;
+
+    ll segSum = 0;
 
     for(int i = 0; i < n; i++){
-        if(i + 2 < n and s[i + 2] == '0' and (i + 3 >= n or s[i + 3] != '0')){
-            int num = ((s[i] - '0') * 10) + (s[i + 1] - '0');
-            ans.push_back((char)(96 + num));
-            i += 2;
+        segSum += a[i];
+        ll sum = 0;
+        int len = 0, mxLen = i + 1;
+        bool possible = false;
+        for(int j = i + 1; j < n; j++){
+            if(sum + a[j] > segSum){
+                break;
+            }
+            if(j == n - 1 and sum + a[j] == segSum){
+                mxLen = max(mxLen, len + 1);
+                possible = true;
+                break;
+            }
+            sum += a[j];
+            len++;
+            if(sum == segSum){
+                mxLen = max(mxLen, len);
+                len = 0;
+                sum = 0;
+            }
         }
-        else{
-            int num = ((s[i] - '0'));
-            ans.push_back((char)(96 + num));
+        if(possible){
+            ans = min(ans,mxLen);
         }
     }
 
-    cout<<ans<<el;
+    out(ans)
 }
 int main(){
     Tahsin
