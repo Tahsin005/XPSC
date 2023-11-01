@@ -1,11 +1,8 @@
-//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
-// } Driver Code Ends
 class Solution {
   public:
-    // Function to detect cycle in an undirected graph.
     
     bool dfs(int vertex,int par,vector<int> graph[],bool vis[]){
         vis[vertex] = true;
@@ -21,7 +18,6 @@ class Solution {
         return isLoopExist;
     }
     bool isCycle(int V, vector<int> adj[]) {
-        // Code here
         bool vis[V + 10];
         for(int i = 0; i <= V; i++){
             vis[i] = 0;
@@ -36,8 +32,6 @@ class Solution {
         return false;
     }
 };
-
-//{ Driver Code Starts.
 int main() {
     int tc;
     cin >> tc;
@@ -60,4 +54,3 @@ int main() {
     }
     return 0;
 }
-// } Driver Code Ends
