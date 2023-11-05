@@ -1,1 +1,0 @@
-Maximum product after deleting an edge: 270

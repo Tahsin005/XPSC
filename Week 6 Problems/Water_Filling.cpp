@@ -27,61 +27,26 @@
 #define messi cout<<"Que Miras Bobo!"<<'\n';
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
-bool isLucky(string& a,string& b){
-    int alen = a.length();
-    int blen = b.length();
-    if((alen + blen) % 2 != 0){
-        return false;
-    }
-    string t = a + b;
-    int half = (alen + blen) / 2;
-
-    string temp1,temp2;
-    for(int i = 0; i < half; i++){
-        temp1.push_back(t[i]);
-    }
-    for(int i = half; i < (alen + blen); i++){
-        temp2.push_back(t[i]);
-    }
-
-    int sum1 = 0, sum2 = 0;
-
-    for(int i = 0; i < temp1.size(); i++){
-        int x = temp1[i] - '0';
-        sum1 += x;
-    }
-
-    for(int i = 0; i < temp2.size(); i++){
-        int x = temp2[i] - '0';
-        sum2 += x;
-    }
-    // cout<<sum1<<" "<<sum2<<el;
-    return sum1 == sum2;
-}
 void solve(){
-    int n;
-    cin>>n;
+    int a,b,c;
+    cin>>a>>b>>c;
+    int cnt = 0;
+    if(a == 0) cnt++;
+    if(b == 0) cnt++;
+    if(c == 0) cnt++;
 
-    vector<string> v(n);
-    for(int i = 0; i < n; i++){
-        cin>>v[i];
+    if(cnt >= 2){
+        cout<<"Water filling time"<<el;
     }
-    ll cnt = 0;
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++){
-            // cout << v[i] << " " << v[j] << endl;
-            if(isLucky(v[i],v[j])){
-                cnt++;
-            }
-        }
+    else{
+        cout<<"Not now"<<el;
     }
-    cout<<cnt<<el;
 }
 int main(){
     Tahsin
     ll t;
-    t = 1;
-    // cin>>t;
+    // t = 1;
+    cin>>t;
     for(ll cs = 1; cs <= t; cs++){
         // cout<<"Case #"<<cs<<": ";
         solve();
