@@ -38,34 +38,23 @@
 using namespace std;
 //@ Problem Link: 
 void solve(){
-    ll n, b, c, d;
-    cin >> n >> b >> c >> d;
-    ll temp = (n - n % 7) / 7 + 1;
+    ll n,q;
+    cin >> n >> q;
+    vll v(n);
 
+    for(ll i = 0; i < n; i++) cin >> v[i];
 
-    if(n % 7 == 0){
-        temp -= 1;
+    vll d1(n + 1), d2(n + 1);
+
+    d1[0] = -1e18;
+    d2[0] = 0;
+
+    for(int i = 0; i < n; i++){
+        d1[i + 1] = max(d1[i], d2[i] + v[i]);
+        d2[i + 1] = max(d2[i], d1[i] - v[i]);
     }
-    ll l = 1, r = temp;
-    ll ans = temp;
-    while(l <= r){
-        ll mid = l + (r - l) / 2;
-        if(b <= (mid + 1) / 2 * c + d * mid){
-            ans = mid;
-            r = mid - 1;
-        }
-        else{
-            l = mid + 1;
-        }
-    }
-    ll temp2 = (ans + 1) / 2;
-    ll howMuch = temp2 * c + d * ans;
-    b = b - howMuch;
-    ll tmp = temp2;
-    b = max(b, 0LL);
-    tmp = tmp + (b / c);
-    tmp = tmp + (b % c != 0);
-    cout << n - tmp << " " << el;
+    
+    cout << max(d1.back(),d2.back()) << el;
 }
 e4{
     Tahsin

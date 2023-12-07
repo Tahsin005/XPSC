@@ -37,35 +37,21 @@
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 //@ Problem Link: 
+const int MOD = 1e9 + 7;
 void solve(){
-    ll n, b, c, d;
-    cin >> n >> b >> c >> d;
-    ll temp = (n - n % 7) / 7 + 1;
-
-
-    if(n % 7 == 0){
-        temp -= 1;
+    int n; cin >> n;
+    string s;
+    cin >> s;
+    int arr[26] = {0};
+    for(int i = 0; i < n; i++){
+        arr[s[i] - 'a']++;
     }
-    ll l = 1, r = temp;
-    ll ans = temp;
-    while(l <= r){
-        ll mid = l + (r - l) / 2;
-        if(b <= (mid + 1) / 2 * c + d * mid){
-            ans = mid;
-            r = mid - 1;
-        }
-        else{
-            l = mid + 1;
-        }
+
+    ll ans = 1;
+    for(int i = 0; i < 26; i++){
+        ans = (ans * (arr[i] + 1)) % MOD;
     }
-    ll temp2 = (ans + 1) / 2;
-    ll howMuch = temp2 * c + d * ans;
-    b = b - howMuch;
-    ll tmp = temp2;
-    b = max(b, 0LL);
-    tmp = tmp + (b / c);
-    tmp = tmp + (b % c != 0);
-    cout << n - tmp << " " << el;
+    cout << ans - 1 << el;
 }
 e4{
     Tahsin

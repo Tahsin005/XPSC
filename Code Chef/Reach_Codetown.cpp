@@ -38,34 +38,38 @@
 using namespace std;
 //@ Problem Link: 
 void solve(){
-    ll n, b, c, d;
-    cin >> n >> b >> c >> d;
-    ll temp = (n - n % 7) / 7 + 1;
+    string s;
+    cin >> s;
 
+    string ans = "CAPETOWN";
 
-    if(n % 7 == 0){
-        temp -= 1;
-    }
-    ll l = 1, r = temp;
-    ll ans = temp;
-    while(l <= r){
-        ll mid = l + (r - l) / 2;
-        if(b <= (mid + 1) / 2 * c + d * mid){
-            ans = mid;
-            r = mid - 1;
+    string stemp = "";
+    string anstemp = "";
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] != 'A' and s[i] != 'E' and s[i] != 'I' and s[i] != 'O' and s[i] != 'U'){
+            stemp += '1';
         }
         else{
-            l = mid + 1;
+            stemp += '0';
         }
     }
-    ll temp2 = (ans + 1) / 2;
-    ll howMuch = temp2 * c + d * ans;
-    b = b - howMuch;
-    ll tmp = temp2;
-    b = max(b, 0LL);
-    tmp = tmp + (b / c);
-    tmp = tmp + (b % c != 0);
-    cout << n - tmp << " " << el;
+    for(int i = 0; i < ans.length(); i++){
+        if(ans[i] != 'A' and ans[i] != 'E' and ans[i] != 'I' and ans[i] != 'O' and ans[i] != 'U'){
+            anstemp += '1';
+        }
+        else{
+            anstemp += '0';
+        }
+    }
+
+    // cout << stemp << el;
+    // cout << anstemp << el;
+    if(stemp != anstemp){
+        cno
+    }
+    else{
+        cyes
+    }
 }
 e4{
     Tahsin

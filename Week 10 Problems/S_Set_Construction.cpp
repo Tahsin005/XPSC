@@ -38,34 +38,38 @@
 using namespace std;
 //@ Problem Link: 
 void solve(){
-    ll n, b, c, d;
-    cin >> n >> b >> c >> d;
-    ll temp = (n - n % 7) / 7 + 1;
+    int n;
+    cin >> n;
+    string s[n];
+
+    for(int i = 0; i < n; i++){
+        cin >> s[i];
+    }
+
+    set<int> st[n + 1];
+
+    for(int i = 1; i <= n; i++){
+        st[i].insert(i);
+    }
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(s[i][j] == '1'){
+                st[j + 1].insert(i + 1);
+            }
+        }
+    }
+
+    for(int i = 1; i <= n; i++){
+        cout << st[i].size() << " ";
+        for(auto val: st[i]){
+            cout << val << " ";
+        }
+        nl
+    }
 
 
-    if(n % 7 == 0){
-        temp -= 1;
-    }
-    ll l = 1, r = temp;
-    ll ans = temp;
-    while(l <= r){
-        ll mid = l + (r - l) / 2;
-        if(b <= (mid + 1) / 2 * c + d * mid){
-            ans = mid;
-            r = mid - 1;
-        }
-        else{
-            l = mid + 1;
-        }
-    }
-    ll temp2 = (ans + 1) / 2;
-    ll howMuch = temp2 * c + d * ans;
-    b = b - howMuch;
-    ll tmp = temp2;
-    b = max(b, 0LL);
-    tmp = tmp + (b / c);
-    tmp = tmp + (b % c != 0);
-    cout << n - tmp << " " << el;
+    
 }
 e4{
     Tahsin
