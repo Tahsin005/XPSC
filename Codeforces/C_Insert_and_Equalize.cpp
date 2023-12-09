@@ -65,33 +65,37 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #endif
 
 // @Problem Link: 
-bool check(ll x,ll n,ll p,ll l,ll t){
-    ll rem = p - x * l;
-    ll task = min((n + 6) / 7,2 * x);
-
-    rem -= task * t;
-
-    return rem <= 0;
-}
 void solve(){
-    ll n,p,l,t;
-    cin >> n >> p >> l >> t;
+    ll n;
+    cin >> n;
+    vll v(n);
 
-    ll low = 1, high = n;
+    for(ll i = 0; i < n; i++) cin >> v[i];
 
+    sort(all(v));
+
+    if(n == 1){
+        cout << 1 << el;
+        return;
+    }
+    ll g = 0;
+    for(ll i = 0; i < n; i++){
+        g = __gcd(v[n - 1] - v[i], g);
+    }
     ll ans = 0;
-    while(low <= high){
-        ll mid = low + (high - low) / 2;
-        if(check(mid,n,p,l,t)){
-            ans = n - mid;
-            high = mid - 1;
-        }
-        else{
-            low = mid + 1;
-        }
+    for(ll i = 0; i < n; i++){
+        ans += abs(v[n - 1] - v[i]) / g;
     }
 
-    cout << ans << el;
+    ll more = n;
+    for(ll i = v[n - 1]; ; i -= g)
+    {
+        if(binary_search(all(v),i)) continue;
+        more = min(more,(v[n - 1] -  i) / g);
+        break;
+    }
+    ans += more;
+    out((ll)ans)
 }
 e4{
     #ifndef OJ
