@@ -64,9 +64,12 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define HERE cerr<<"here - "<<__LINE__<<"\n";
 #endif
 
-// @Problem Link: 
+// @Problem Link: https://codeforces.com/problemset/problem/1352/C
 void solve(){
-    
+    ll n,k;
+    cin >> n >> k;
+    ll fact = (k - 1) / (n - 1);
+    cout << fact + k << el;
     
 
 }

@@ -64,11 +64,24 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define HERE cerr<<"here - "<<__LINE__<<"\n";
 #endif
 
-// @Problem Link: 
+// @Problem Link: https://codeforces.com/contest/1225/problem/B1
 void solve(){
-    
-    
+    int n,k,d;
+    cin >> n >> k >> d;
+    vii v(n);
+    for(int i = 0; i < n; i++) cin >> v[i];
 
+    int ans = 111;
+    int cnt = 0;
+    for(int i = 0; i <= n - d; i++){
+        set<int> st;
+        for(int j = 0; j < d; j++){
+            st.insert(v[i + j]);
+        }
+        ans = min(ans, (int)st.size());
+    }
+    cout << ans << el;
+    
 }
 e4{
     #ifndef OJ

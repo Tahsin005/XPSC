@@ -64,10 +64,37 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define HERE cerr<<"here - "<<__LINE__<<"\n";
 #endif
 
-// @Problem Link: 
+// @Problem Link: https://codeforces.com/contest/1864/problem/B
 void solve(){
-    
-    
+    int n,k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    if(k & 1){
+        string odd = "", even = "";
+        for (int i = 0; i < n; i++){
+            if(i & 1) odd += s[i];
+            else even += s[i];
+        }
+        sort(all(odd));
+        sort(all(even));
+        int i = 0;
+        string ans = "";
+        while(i < odd.size()){
+            ans += even[i];
+            ans += odd[i];
+            i++;
+        }
+        if(n % 2){
+            ans += even[even.size() - 1];
+        }
+        
+        cout << ans << el;
+    }
+    else{
+        sort(all(s));
+        cout << s << el;
+    }
 
 }
 e4{
