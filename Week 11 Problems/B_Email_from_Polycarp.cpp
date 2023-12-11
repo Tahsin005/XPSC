@@ -52,7 +52,7 @@ void __print(bool x) {cerr << (x ? "true" : "false");}
 template<typename T, typename V>
 void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
 template<typename T>
-void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
+void __print(const T &x) {int f = 0; cerr << '{'; for (auto &j: x) cerr << (f++ ? "," : ""), __print(j); cerr << "}";}
 void _print() {cerr << "]\n";}
 template <typename T, typename... V>
 void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
@@ -65,22 +65,26 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #endif
 
 // @Problem Link: 
-const int MOD = 998244353;
 void solve(){
-    ll n;
-    cin >> n;
-    if(n % 2){
-        cout << 0 << el;
+    string s,t;
+    cin >> s >> t;
+    if(s == t){
+        cyes
         return;
     }
-    ll ans = 1;
-    n /= 2;
-    for(ll i = 1; i <= n; i++){
-        ans *= (i * i) % MOD;
-        ans %= MOD;
+    int j = 0, i = 0;
+    while(j < t.size()){
+        if(s[i] == t[j]){
+            i++;
+        }
+        else if(t[j] != t[j - 1]){
+            break;
+        }
+        j++;
     }
-    cout << ans << el;
-
+    if(i == s.size() and j == t.size()) cyes
+    else cno
+    
 }
 e4{
     #ifndef OJ
