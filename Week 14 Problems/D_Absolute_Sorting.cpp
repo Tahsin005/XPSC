@@ -1,17 +1,9 @@
-//                      ...              ...                                                             
-//    .::::::::.       .@@+              %@%                                                             
-//    =@@@@@@@@+       .@@+              +*+                                                             
-//    -**#@@%**-       .@@+                                                                              
-//       :@@-    :=+:  .@@+.==    .=+-   ::: ::: -+:                                                     
-//       :@@-   #@@@@% .@@#@@@%  +@@@@@: %@% #@##@@@-                                                    
-//       :@@-  +@@+*@@+.@@@+%@@=.@@+:%@% %@% #@@**@@%                                                    
-//       :@@-  :--  @@*.@@+ .@@*:@@= ::: %@% #@%  *@@                                                    
-//       :@@-   -*##@@*.@@+  @@* %@@@*-  %@% #@%  *@@                                                    
-//       :@@-  =@@#*@@*.@@+  @@*  +#@@@* %@% #@%  *@@                                                    
-//       :@@-  @@#  @@*.@@+  @@*:== .#@@ %@% #@%  *@@                                                    
-//       :@@-  %@@=*@@#.@@+  @@*-@@=:%@@ %@% #@%  *@@                                                    
-//       :@@-  -@@@%%@@.@@+  @@* *@@@@@- %@% #@%  *@@                                                    
-//       .--.   :+= :-- --.  :-:  :=+-.  :-: :-:  :--               
+/*
+        Author: tahsin_ferdous
+        Email: tahsin.ferdous3546@gmail.com
+
+        Qué mirás, bobo? Qué mirás, bobo?…
+*/          
 #include<bits/stdc++.h>
 #define OJ
 using namespace std;
@@ -24,16 +16,21 @@ using namespace std;
 #define nl cout << '\n';
 #define el '\n'
 #define all(x) x.begin(), x.end()
+#define fr(x, s, e, b) for (ll x = s; x <= e; x = x + b)
+#define rfr(x, s, e, b) for (ll x = s; x >= e; x = x - b)
 #define vtr vector
 #define vii vector<int> 
 #define vll vector<ll>
+#define pii pair<int,int>
+#define mii map<int,int>
 #define imax INT_MAX
 #define imin INT_MIN
+#define F first
+#define S second
 #define pb push_back
-#define pii pair<int,int>
 #define out(x) cout << x << '\n';
 #define out2(x,y) cout << x << " " << y << '\n';
-#define messi cout << "Que Miras Bobo!" << '\n';
+#define messi cout << "Qué mirás, bobo?" << '\n';
 #define e4 int main()
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 void __print(int x) {cerr << x;}
@@ -66,7 +63,29 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 
 // @Problem Link: 
 void solve(){
-    
+    ll n;
+    cin >> n;
+    vll v(n);
+    fr(i, 0, n - 1, 1) cin >> v[i];
+
+    ll x = 0;
+    fr(i, 0, n - 2, 1){
+        if(v[i] > v[i + 1]){
+            x = max(x, ((v[i] + v[i + 1] + 1)) / 2);
+        }
+    }
+    fr(i, 0, n - 1, 1){
+        v[i] = abs(v[i] - x);
+    }
+    bool flag = true;
+    fr(i, 0, n - 2, 1){
+        if(v[i] > v[i + 1]){
+            flag = false;
+            break;
+        }
+    }
+    if(flag) cout << x << el; 
+    else minus  
     
 
 }
