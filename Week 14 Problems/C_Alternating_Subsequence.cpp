@@ -62,20 +62,21 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #endif
 
 // @Problem Link: 
+bool sign(int num){
+    return num > 0;
+}
 void solve(){
-    ll n;
-    cin >> n;
-    ll sum = 0;
-    for(ll i = 0; i < n; i++){
-        ll x; cin >> x;
-        sum += x;
+    ll n, ans = 0; cin >> n; vll v(n); fr(i, 0, n - 1, 1) cin >> v[i];
+    fr(i, 0, n - 1, 1){
+        ll j = i, mx = v[i];
+        while(j < n and sign(v[i]) == sign(v[j])){
+            mx = max(mx, v[j]);
+            j++;
+        }
+        i = j - 1;
+        ans += mx;
     }
-
-    ll val = sqrt(sum);
-
-    if(val * val == sum) cyes
-    else cno
-
+    cout << ans << el;
 }
 e4{
     #ifndef OJ

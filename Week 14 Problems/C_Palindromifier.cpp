@@ -63,18 +63,18 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 
 // @Problem Link: 
 void solve(){
-    ll n;
-    cin >> n;
-    ll sum = 0;
-    for(ll i = 0; i < n; i++){
-        ll x; cin >> x;
-        sum += x;
+    string s; cin >> s;
+    string temp = s;
+    reverse(all(temp));
+    if(s == temp){
+        cout << 0 << el; return;
     }
 
-    ll val = sqrt(sum);
-
-    if(val * val == sum) cyes
-    else cno
+    cout << 3 << el;
+    cout << "R" << " " << s.length() - 1 << el;
+    cout << "L" << " " << s.length() << el;
+    cout << "L" << " " << 2 << el;
+    
 
 }
 e4{
@@ -86,7 +86,7 @@ e4{
     #endif
 
     ll t = 1;
-    cin >> t;
+    // cin >> t;
     for(ll cs = 1; cs <= t; cs++){
         // cout << "Case #" << cs << ": ";
         solve();

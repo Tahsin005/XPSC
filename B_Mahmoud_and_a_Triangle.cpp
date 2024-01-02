@@ -63,18 +63,19 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 
 // @Problem Link: 
 void solve(){
-    ll n;
-    cin >> n;
-    ll sum = 0;
-    for(ll i = 0; i < n; i++){
-        ll x; cin >> x;
-        sum += x;
+    ll n; cin >> n; vll v(n); fr(i, 0, n - 1, 1) cin >> v[i];
+
+    sort(all(v)); bool flag = false;
+    fr(i, 0, n - 3, 1){
+        if(v[i] + v[i + 1] > v[i + 2]){
+            flag = true;
+            break;
+        }
     }
-
-    ll val = sqrt(sum);
-
-    if(val * val == sum) cyes
+    if(flag) cyes 
     else cno
+    
+    
 
 }
 e4{
@@ -86,7 +87,7 @@ e4{
     #endif
 
     ll t = 1;
-    cin >> t;
+    // cin >> t;
     for(ll cs = 1; cs <= t; cs++){
         // cout << "Case #" << cs << ": ";
         solve();

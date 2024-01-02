@@ -61,21 +61,11 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define HERE cerr<<"here - "<<__LINE__<<"\n";
 #endif
 
-// @Problem Link: 
+// @Problem Link: https://codeforces.com/contest/766/problem/A
 void solve(){
-    ll n;
-    cin >> n;
-    ll sum = 0;
-    for(ll i = 0; i < n; i++){
-        ll x; cin >> x;
-        sum += x;
-    }
-
-    ll val = sqrt(sum);
-
-    if(val * val == sum) cyes
-    else cno
-
+    string a, b; cin >> a >> b;
+    if(a == b) cout << -1;
+    else cout << max(a.size(), b.size());
 }
 e4{
     #ifndef OJ
@@ -86,7 +76,7 @@ e4{
     #endif
 
     ll t = 1;
-    cin >> t;
+    // cin >> t;
     for(ll cs = 1; cs <= t; cs++){
         // cout << "Case #" << cs << ": ";
         solve();
