@@ -63,76 +63,26 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 
 // @Problem Link: 
 void solve(){
-    string s;
-    cin >> s;
-    s += '.';
-    string temp = "";
-    vtr<string> v;
-    int l = s.length();
-    fr(i, 0, l - 1, 1){
-        if(s[i] == '.'){
-            v.push_back(temp);
-            temp.clear();
-        }
-        else{
-            temp += s[i];
-        }
-    }
-    int n = v.size();
-    if(n <= 1){
-        cno 
-        return;
-    }
-    for(auto val: v){
-        if(val.empty() == true){
-            cno 
-            return;
-        }
-    }
-    if(n == 2){
-        if(v[1].size() > 3 or v[0].size() > 8){
-            cno 
-            return;
-        }
-        else{
-            cyes 
-            cout << v[0] << "." << v[1] << el;
-            return;
-        }
+    int n, q;
+    cin >> n >> q;
+
+    for(int i = 1; i < n; i++){
+        cout << i << " " << (i + 1) << el;
     }
 
-    fr(i, 1, n - 2, 1){
-        if(v[i].size() > 11 or v[i].size() < 2){
-            cno 
-            return;
+    int currDist = n - 1;
+    int u = 1, v = 2;
+    while(q--){
+        int d;
+        cin >> d;
+        if(d == currDist){
+            cout << "-1 -1 -1" << el;
+            continue;
         }
+        cout << "1 " << v << " " << (n - d + 1) << el;
+        u = 1, v = n - d + 1;
+        currDist = d;
     }
-    cyes 
-    cout << v[0] << ".";
-    fr(i, 1, n - 2, 1){
-        if(v[i].size() > 9) {
-            int j;
-            for(j = 0; j <= 2; j++){
-                cout << v[i][j];
-            }nl
-            for(; j < v[i].size(); j++){
-                cout << v[i][j];
-            }
-            cout << ".";
-        } 
-        else{
-            for(int j = 0; j < v[i].size(); j++){
-                cout << v[i][j];
-                if(j == 0) {
-                    nl
-                }
-            }
-            cout << ".";
-        }
-    }  
-    cout << v.back() << el;
-
-
 }
 e4{
     #ifndef OJ
@@ -143,7 +93,7 @@ e4{
     #endif
 
     ll t = 1;
-    // cin >> t;
+    cin >> t;
     for(ll cs = 1; cs <= t; cs++){
         // cout << "Case #" << cs << ": ";
         solve();
