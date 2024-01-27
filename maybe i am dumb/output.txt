@@ -1,1 +1,11 @@
-8192
+ba
+Qué mirás, bobo?
+YES
+b
+Qué mirás, bobo?
+NO
+ba
+cb
+Qué mirás, bobo?
+NO
+cbc
