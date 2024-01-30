@@ -1,11 +1,16 @@
-ba
-Qué mirás, bobo?
-YES
-b
-Qué mirás, bobo?
-NO
-ba
-cb
-Qué mirás, bobo?
-NO
-cbc
+
+1 
+0 
+1 0 
+1 
+1 1 
+0 1 
+1 0 1 
+0 
+1 0 
+0 0 
+1 0 0 
+1 0 
+1 1 0 
+0 1 0 
+1 0 1 0 
