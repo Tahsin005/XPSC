@@ -68,7 +68,17 @@ template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_ta
 
 // @Problem Link: 
 void TEST_CASE(){
-    
+    int n;
+    cin >> n;
+    if (n == 1) {
+        cout << 1 << " " << 2 << " " << 3 << " " << "PUM" << el;
+        return;
+    }
+    int a = 1, b = 2, c = 3;
+    for (int i = 1; i <= n; i++) {
+        cout << a << " " << b << " " << c << " " << "PUM" << el;
+        a += 4, b += 4, c += 4;
+    }
         
 
 }
@@ -81,7 +91,7 @@ e4{
     #endif
 
     ll tc = 1;
-    cin >> tc;
+    // cin >> tc;
     for(ll cs = 1; cs <= tc; cs++){
         // cout << "Case #" << cs << ": ";
         TEST_CASE();
