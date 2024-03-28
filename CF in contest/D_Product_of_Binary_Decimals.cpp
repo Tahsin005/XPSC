@@ -80,7 +80,7 @@ void TEST_CASE(){
         }
     }
     if (check) {
-        vector<int> vc = {10,11,101,111,1001,1011,1101,1111};
+        vector<int> vc = {10, 11, 101, 111, 1001, 1011, 1101, 1111};
         for (auto x : vc) {
             if (n % x == 0) {
                 while (n % x == 0) {
