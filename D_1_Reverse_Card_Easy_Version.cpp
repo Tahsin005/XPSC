@@ -8,6 +8,7 @@ int main(){
         for (ll i = 1; i <= m; i++) {
             cnt += (n + i) / i / i;
         }
+        
         cout << cnt - 1 << "\n";
     }
     
