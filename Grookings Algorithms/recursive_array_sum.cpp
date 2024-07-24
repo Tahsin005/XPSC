@@ -3,7 +3,7 @@ using namespace std;
 
 /*
     This one is from Grooking Algorithms - page: 56
- */
+*/
 
 int rec_sum(list<int> &v) {
     if (v.size() == 1) return v.front();
