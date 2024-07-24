@@ -19,14 +19,18 @@ def bfs():
     
     search_queue += graph["you"]
     
+    searched = []
+    
     while search_queue:
         person = search_queue.pop()
         
-        if person_is_seller(person):
-            print(person + " is a mango seller")
-            return True
-        else:
-            search_queue += graph[person]    
+        if not person in searched:
+            if person_is_seller(person):
+                print(person + " is a mango seller")
+                return True
+            else:
+                search_queue += graph[person]  
+                searched.append(person)  
     return False
 
 print(bfs())
