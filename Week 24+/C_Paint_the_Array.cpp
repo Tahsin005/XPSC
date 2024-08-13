@@ -67,12 +67,36 @@ template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_ta
 // template <typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 // @Problem Link: 
+bool check_if_it_works(ll n, ll gcdx, ll idx, vector<ll> &v) {
+    while (idx <= n) {
+        if (v[idx] % gcdx == 0) return false;
+        idx += 2;
+    }
+
+    return true;
+}
 void TEST_CASE(){
     ll n; cin >> n;
-    vector<ll> v(n);
+    vector<ll> v(n + 1);
 
-    for (ll i = 0; i < n; i++) cin >> v[i];
+    for (ll i = 1; i <= n; i++) cin >> v[i];
 
+    ll gcd1 = v[1], gcd2 = v[2];
+    ll i = 1, j = 2;
+
+    while (i <= n) {
+        gcd1 = __gcd(gcd1, v[i]);
+        i += 2;
+    }
+
+    while (j <= n) {
+        gcd2 = __gcd(gcd2, v[j]);
+        j += 2;
+    }
+
+    if (check_if_it_works(n, gcd1, 2, v)) cout << gcd1 << el;
+    else if (check_if_it_works(n, gcd2, 1, v)) cout << gcd2 << el;
+    else cout << 0 << el;
 }
 e4{
     #ifndef OJ
