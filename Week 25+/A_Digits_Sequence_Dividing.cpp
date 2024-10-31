@@ -70,6 +70,7 @@ template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_ta
 void TEST_CASE(){
     ll n;
     string s;
+
     cin >> n >> s;
 
     string a = "", b = "";
