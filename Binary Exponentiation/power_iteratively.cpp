@@ -9,7 +9,7 @@
 #define el '\n'
 #define all(x) x.begin(), x.end()
 #define vtr vector
-#define vii vector<int> 
+#define vii vector<int>
 #define vll vector<ll>
 #define imax INT_MAX
 #define imin INT_MIN
@@ -41,7 +41,7 @@ int binPow(int a,int b){
         if(b & 1){
             ans = (ans * 1LL * a) % MOD;
         }
-        a = (a * 1LL * a) % MOD; 
+        a = (a * 1LL * a) % MOD;
         b >>= 1;
     }
     return ans;
@@ -49,6 +49,6 @@ int binPow(int a,int b){
 e4{
     int a = 2, b = 13;
     cout << binPow(a,b) << el;
-    
-    return 0;    
+
+    return 0;
 }
