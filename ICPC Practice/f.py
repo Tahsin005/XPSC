@@ -15,7 +15,6 @@ def main():
         result = calculate_inradius(a, b, c)
 
         fraction = Fraction(result).limit_denominator()
-        # Explicitly show the fraction as "numerator/denominator"
         print(f"{fraction.numerator}/{fraction.denominator}")
 
 if __name__ == "__main__":
