@@ -1,3 +1,5 @@
-6
-1
-4
+10
+13
+All positive or not? 0
+Any positive or not? 0
+Not all positive or not? 1
