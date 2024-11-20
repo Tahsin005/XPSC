@@ -5,7 +5,7 @@
 #define nl cout<<'\n';
 #define el '\n'
 #define vtr vector
-#define vii vector<int> 
+#define vii vector<int>
 #define vll vector<ll>
 #define imax INT_MAX
 #define imin INT_MIN
@@ -16,10 +16,10 @@
 #define messi cout<<"Que Miras Bobo!"<<'\n';
 #define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
-/* 
+/*
 6 9
 1 3 4
-1 5 3 
+1 5 3
 3 5 2
 3 4 7
 3 6 8
@@ -42,6 +42,6 @@ int main(){
         graph1[v2][v1] = w;
     }
 
-
-    return 0;    
+    // space complexity: o(n^2)
+    return 0;
 }
