@@ -33,28 +33,33 @@ using namespace std;
 */
 
 const int N = 1e5;
-
+/*
+    Given Q queries, Q <= 1e5
+    In each given query V,
+    Print subtree sum of V , and number of even elements
+    in subtree of V
+*/
 vtr<int> g[N];
-int height[N],depth[N];
 
-
-void dfs(int vertex,int par){
+int subtree_sum[N];
+int even_cnt[N];
+void dfs(int vertex,int par = 0){
     // Take action on vertex after entering the vertex
+    if(vertex % 2 ==0) even_cnt[vertex]++;
+
+    subtree_sum[vertex] += vertex;
+
     for(int child: g[vertex]){
         // Take action on child node before entering the child node
         if(child == par) continue;
-        depth[child] = depth[vertex] + 1;
         dfs(child,vertex);
         // Take action on child node after exiting the child node
-        height[vertex] = max(height[vertex], height[child] + 1);
+        subtree_sum[vertex] += subtree_sum[child];
+
+        even_cnt[vertex] += even_cnt[child];
     }
     // Take action on vertex before exiting the vertex
 }
-/*
-    Depth is calculated from the top
-    Height is calculated from the bottom(when exiting the child node)
-*/
-
 int main(){
     int n;
     cin>>n;
@@ -65,10 +70,18 @@ int main(){
         g[v1].push_back(v2);
         g[v2].push_back(v1);
     }
+    dfs(1);
 
-    dfs(1,0);
     for(int i = 1; i <= n; i++){
-        out2(depth[i],height[i])
+        cout<<subtree_sum[i]<<" "<<even_cnt[i]<<el;
     }
+    // int q;
+    // cin>>q;
+    // while(q--){
+    //     int v;
+    //     cin>>v;
+    //     cout<<subtree_sum[v]<<" "<<even_cnt[v]<<el;
+    // }
+
     return 0;
 }
