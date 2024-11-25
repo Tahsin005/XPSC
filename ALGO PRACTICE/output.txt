@@ -1,1 +1,1 @@
-Depth of the tree is : 9
+5
