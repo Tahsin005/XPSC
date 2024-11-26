@@ -5,7 +5,7 @@
 #define nl cout<<'\n';
 #define el '\n'
 #define vtr vector
-#define vii vector<int> 
+#define vii vector<int>
 #define vll vector<ll>
 #define imax INT_MAX
 #define imin INT_MIN
@@ -18,6 +18,36 @@
 using namespace std;
 
 const int M = 1e9 + 7;
+
+
+/*
+
+Input 1:
+
+ A = [10, 5, 12, 6]
+ B = [
+
+        [1, 2]
+        [1, 4]
+        [4, 3]
+     ]
+Input 2:
+
+ A = [11, 12]
+ B = [
+
+        [1, 2]
+     ]
+
+
+Output 1:
+
+ 270
+Output 2:
+
+ 132
+
+*/
 
 void dfs(int vertex, int par, vector<int> g[], vector<int> &subtree_sum, vector<int> &val) {
     subtree_sum[vertex] += val[vertex - 1];
@@ -43,7 +73,7 @@ int deleteEdge(vector<int> &A, vector<vector<int>> &B) {
     dfs(1, 0, g, subtree_sum, A);
 
     long long ans = 0;
-    for (int i = 2; i <= n; ++i) {
+    for (int i = 2; i <= n; i++) {
         long long part1 = subtree_sum[i];
         long long part2 = subtree_sum[1] - part1;
 
