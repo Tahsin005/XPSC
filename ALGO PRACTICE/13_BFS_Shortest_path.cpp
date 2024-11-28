@@ -36,12 +36,8 @@ int getY(string s) {
     return s[1] - '1';
 }
 
-
-vector<pair<int,int>> movements = {
-    {-1,2}, {1,2},
-    {-1,-2}, {1,-2},
-    {2,-1}, {2,1},
-    {-2,-1}, {-2,1}
+vector<pair<int, int>> movements = {
+    {-1, 2}, {1, 2}, {-1, -2}, {1, -2}, {2, -1}, {2, 1}, {-2, -1}, {-2, 1}
 };
 
 bool isValid (int x, int y) {
