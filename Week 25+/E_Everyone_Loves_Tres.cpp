@@ -67,39 +67,16 @@ template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_ta
 // template <typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 // @Problem Link:
-bool isDivisibleBy66(string &num) {
-    ll n = stoll(num);
-    return (n % 66 == 0);
-}
-
-bool nextNumber(string &num) {
-    int n = num.size();
-
-    for (int i = n - 1; i >= 0; i--) {
-        if (num[i] == '3') {
-            num[i] = '6';
-            return true;
-        } else {
-            num[i] = '3';
-        }
-    }
-    return false;
-}
-
 void TEST_CASE(){
-    int n;
-    cin >> n;
-
-    string num(n, '3');
-
-    do {
-        if (isDivisibleBy66(num)) {
-            cout << num << el;
-            return;
-        }
-    } while (nextNumber(num));
-
-    cout << -1 << el;
+    int n; cin >> n;
+    if (n == 1 or n == 3) cout << "-1" << el;
+    else if (n & 1) {
+        for (int i = 0; i < n - 5; i++) cout << 3;
+        cout << "36366" << el;
+    } else {
+        for (int i = 0; i < (n >> 1) - 1; i++) cout << "33";
+        cout << "66" << el;
+    }
 
 }
 e4{
