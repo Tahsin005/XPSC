@@ -41,6 +41,7 @@ int main(){
         }
         ans.push_back(sum);
     }
+    
     reverse(ans.begin(), ans.end());
     for(auto val : ans){
         cout << val << " ";
