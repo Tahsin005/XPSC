@@ -64,20 +64,29 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #include<ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-template <typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+// template <typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 // @Problem Link:
-void TEST_CASE(){
-    int a, b, c, x, q;
-    cin >> a >> b >> c;
+bool isPerfectSquare(int n) {
+    if (n < 0) return false;
+    int root = sqrt(n);
+    return root * root == n;
+}
 
-    x = a + (c + 1) / 2;
-    q = b + c / 2;
-    if (x > q) {
-        cout << "First" << el;
-    } else {
-        cout << "Second" << el;
+void TEST_CASE(){
+    int n;
+    cin >> n;
+
+    int sum = 0, cnt = 0;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        sum += x;
+        if (isPerfectSquare(sum) and (sum & 1)) cnt++;
     }
+
+    cout << cnt << el;
+
 }
 e4{
     #ifndef OJ
