@@ -70,12 +70,27 @@ template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_ta
 void TEST_CASE(){
     int n;
     cin >> n;
+    map<int, int> mp;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        mp[x]++;
+    }
 
-    int a = 1, b = 1, c = 1;
-    int d = n - (a + b + c);
+    int mx = 0;
+    for (auto [x, y] : mp) {
+        mx = max(mx, y);
+    }
 
-    cout << d << " " << a << " " << b << " " << c << el;
-
+    int ans = 0;
+    while (mx < n) {
+        int d = min(n - mx, mx);
+        // cout << d << el;
+        ans += 1 + d;
+        mx += d;
+    }
+    cout << ans << el;
+    // messi;
 }
 e4{
     #ifndef OJ
