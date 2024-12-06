@@ -5,7 +5,6 @@ void swap(int *a, int *b) {
     *a = *b;
     *b = temp;
 }
-
 void heapify(int arr[], int curr, int size) {
     int largest = curr;
     int leftChild = 2 * curr + 1;
@@ -27,6 +26,7 @@ void heapify(int arr[], int curr, int size) {
 }
 
 void heapSort(int arr[], int n) {
+    // Build heap
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(arr, i, n);
     }
