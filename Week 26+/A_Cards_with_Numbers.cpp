@@ -1,108 +1,27 @@
-/*
-        Author: tahsin_ferdous
-        Email: tahsin.ferdous3546@gmail.com
+// Source: https://usaco.guide/general/io
 
-        Qué mirás, bobo? Qué mirás, bobo?…
-*/
-#include<bits/stdc++.h>
-#define OJ
+#include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define cyes cout << "YES" << '\n'
-#define yes cout << "Yes" << '\n'
-#define cno cout << "NO"<< '\n'
-#define no cout << "No"<< '\n'
-#define minus cout << -1 << '\n'
-#define nl cout << '\n'
-#define el '\n'
-#define all(x) x.begin(), x.end()
-#define fr(x, s, e, b) for (ll x = s; x <= e; x = x + b)
-#define rfr(x, s, e, b) for (ll x = s; x >= e; x = x - b)
-#define vtr vector
-#define vii vector<int>
-#define vll vector<ll>
-#define pii pair<int,int>
-#define mii map<int,int>
-#define imax INT_MAX
-#define imin INT_MIN
-#define F first
-#define S second
-#define pb push_back
-#define out(x) cout << x << '\n'
-#define out2(x,y) cout << x << " " << y << '\n'
-#define messi cout << "Qué mirás, bobo?" << '\n'
-#define e4 int main()
-#define Tahsin ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
-void __print(int x) {cerr << x;}
-void __print(long x) {cerr << x;}
-void __print(long long x) {cerr << x;}
-void __print(unsigned x) {cerr << x;}
-void __print(unsigned long x) {cerr << x;}
-void __print(unsigned long long x) {cerr << x;}
-void __print(float x) {cerr << x;}
-void __print(double x) {cerr << x;}
-void __print(long double x) {cerr << x;}
-void __print(char x) {cerr << '\'' << x << '\'';}
-void __print(const char *x) {cerr << '\"' << x << '\"';}
-void __print(const string &x) {cerr << '\"' << x << '\"';}
-void __print(bool x) {cerr << (x ? "true" : "false");}
-template<typename T, typename V>
-void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
-template<typename T>
-void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
-void _print() {cerr << "]\n";}
-template <typename T, typename... V>
-void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
-#ifndef OJ
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
-#define HERE cerr<<"here - "<<__LINE__<<"\n";
-#else
-#define debug(x...)
-#define HERE cerr<<"here - "<<__LINE__<<"\n";
-#endif
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
-template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-// template <typename T> using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
-// @Problem Link:
-void TEST_CASE(){
-    int n;
-    cin >> n;
-    int arr[2 * n], a[5001] = {0};
-    vector<pair<int, int>> v(2 * n);
-    for (int i = 0; i < 2 * n; i++) {
-        cin >> arr[i];
-        v[i].first = arr[i];
-        v[i].second = i + 1;
-        a[arr[i]]++;
-    }
+int main() {
+	ifstream xin("input.txt");
+	ofstream xout("output.txt");
 
-    for (int i = 0; i < 5001; i++) {
-        if (a[i] != 0 and a[i] % 2 != 0) {
-            cout << -1;
-            return;
-        }
-    }
-    sort(v.begin(), v.end());
-    for (int i = 0; i < 2 * n; i++) {
-        cout << v[i].second << " " << v[i + 1].second << el;
-        i++;
-    }
-}
-e4{
-    #ifndef OJ
-        freopen("error.txt", "w", stderr);
-    #endif
-    #ifdef OJ
-        Tahsin
-    #endif
+	map<int, vector<int>> mpp;
+	int n; xin >> n;
 
-    ll tc = 1;
-    for (ll cs = 1; cs <= tc; cs++) {
-        // cout << "Case #" << cs << ": ";
-        TEST_CASE();
-    }
-    return 0;
+	for(int i = 0; i < 2*n; i++) {
+		int x; xin >> x;
+		mpp[x].push_back(i+1);
+	}
+
+	for(auto elm: mpp) {
+		if (elm.second.size()%2 != 0) {xout << -1; return 0;}
+	}
+	for(auto elm: mpp) {
+		for(int i = 0; i < elm.second.size(); i+=2) {
+			xout << elm.second[i] << " " << elm.second[i+1] << "\n";
+		}
+	}
+
 }

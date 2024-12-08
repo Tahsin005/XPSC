@@ -9,10 +9,10 @@ void swap(int *a, int *b) {
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
 
-    int i = low - 1;
+    int i = low - 1; // koita elem age gese..
 
     for (int j = low; j <= high; j++) {
-        if (arr[j] < pivot) {
+        if (arr[j] > pivot) {
             i++;
 
             swap(&arr[i], &arr[j]);
